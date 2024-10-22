@@ -13,7 +13,7 @@ def git_push(repo_path):
         fecha_actual = datetime.now().strftime("%d/%m/%Y %H:%M")
 
         # Definir el mensaje del commit (mensaje de subida)
-        commit_message = f"Actualización {fecha_actual} desde Python"
+        commit_message = f"Actualización {fecha_actual}"
 
         # Agregar todos los archivos modificados (solo agregamos archivos
         # modificados después del anterior commit)
