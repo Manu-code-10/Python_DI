@@ -690,7 +690,36 @@ En la Programación Orientada a Objetos (POO), las interfaces y clases
 #         conexion.close()
 
 """ No relacionales --> MONGODB"""
+# # Importar módulos
+# import pymongo
+# import pandas as pd
+# # Conexión
+# try: 
+#     cliente = pymongo.MongoClient(
+#         "mongodb+srv://manuel10benito:x6HWnCibWBsVpi9v@cluster0.sq23v.mongodb.net/?retryWrites=true&w=majority")
+#     print("Conexión exitosa")
+# except Exception as e:
+#     print(f"Error en la conexión {e}")
+#     exit()
+# # Extraer información
+# db = cliente["sample_mflix"]
+# coleccion = db["movies"]
+# # Hacer la consulta
+# try:
+#     resultados = coleccion.find().limit(10)
+#     lista_resultados = list(resultados)
+#     # Verificar si se han extraido los resultados
+#     if not lista_resultados:
+#         print("No se han encontrado datos")
+#     else:
+#         print(f"Se han encontrado {len(lista_resultados)} documentos")
+#         df = pd.DataFrame(lista_resultados)
+# except Exception as e:
+#     print(f"Error al realizar la consulta: {e}")
 
+# Lista --> Dataframe
+
+        
 
 
 
@@ -760,88 +789,68 @@ En la Programación Orientada a Objetos (POO), las interfaces y clases
 # for pokemon in lista_pokemon:
 #     print(pokemon["name"])
 
+# PVGIS
 
+# Definir la URL de la API de PVGIS y los parámetros para la consulta
+import json
+import requests
+base_url = "https://re.jrc.ec.europa.eu/api/v5_2/PVcalc"
 
+# Parámetros de la solicitud (Madrid, España)
+params = {
+    'lat': 40.4168,  # Latitud 
+    'lon': -3.7038,  # Longitud 
+    'peakpower': 1,  # Potencia pico del sistema (kW)
+    'pvtechchoice': 'crystSi',  # Tipo de tecnología PV (Silicio cristalino)
+    'loss': 14,  # Pérdidas del sistema (%)
+    'outputformat': 'json'  # Formato de salida
+}
 
+# Realizar la solicitud GET
+response = requests.get(base_url, params=params)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Verificar que la solicitud fue exitosa
+if response.status_code == 200:
+    # Cargar el contenido JSON en una variable de Python
+    data = json.loads(response.text)
     
-# # PVGIS
-# # Definir la URL de la API de PVGIS y los parámetros para la consulta
-# import json
-# import request
-# base_url = "https://re.jrc.ec.europa.eu/api/v5_2/PVcalc"
-
-# # Parámetros de la solicitud (Madrid, España)
-# params = {
-#     'lat': 40.4168,  # Latitud de Madrid
-#     'lon': -3.7038,  # Longitud de Madrid
-#     'peakpower': 1,  # Potencia pico del sistema (kW)
-#     'pvtechchoice': 'crystSi',  # Tipo de tecnología PV (Silicio cristalino)
-#     'loss': 14,  # Pérdidas del sistema (%)
-#     'outputformat': 'json'  # Formato de salida
-# }
-
-# # Realizar la solicitud GET
-# response = requests.get(base_url, params=params)
-
-# # Verificar que la solicitud fue exitosa
-# if response.status_code == 200:
-#     # Cargar el contenido JSON en una variable de Python
-#     data = json.loads(response.text)
-    
-#     # Mostrar parte de la información
-#     print("Datos obtenidos de PVGIS:")
-#     print(f"Energía diaria estimada: {data['outputs']['totals']['fixed']['E_d']} kWh")
-#     print(f"Energía anual estimada: {data['outputs']['totals']['fixed']['E_y']} kWh")
-# else:
-#     print(f"Error al realizar la solicitud: {response.status_code}")
+    # Mostrar parte de la información
+    print("Datos obtenidos de PVGIS:")
+    print(f"Energía diaria estimada: {data['outputs']['totals']['fixed']['E_d']} kWh")
+    print(f"Energía anual estimada: {data['outputs']['totals']['fixed']['E_y']} kWh")
+else:
+    print(f"Error al realizar la solicitud: {response.status_code}")
 
 
 # Creación de APIs
 # Crear la API
-from flask import Flask, jsonify
+# from flask import Flask, jsonify
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-# Ruta principal con respuesta en formato JSON
-@app.route('/api', methods=['GET'])
-def obtener_datos():
-    # Datos en formato JSON
-    datos = {
-        "nombre": "Javi",
-        "edad": 25,
-        "ciudad": "Madrid"
-    }
-    return jsonify(datos)
+# # Ruta principal con respuesta en formato JSON
+# @app.route('/api', methods=['GET'])
+# def obtener_datos():
+#     # Datos en formato JSON
+#     datos = {
+#         "nombre": "Javi",
+#         "edad": 25,
+#         "ciudad": "Madrid"
+#     }
+#     return jsonify(datos)
 
-# Ruta para obtener una lista de datos
-@app.route('/api/lista', methods=['GET'])
-def obtener_lista():
-    lista_datos = [
-        {"nombre": "Sebastián", "edad": 19, "ciudad": "Seseña"},
-        {"nombre": "Javier", "edad": 19, "ciudad": "Seseña"},
-        {"nombre": "Manu", "edad": 26, "ciudad": "Illescas"}
-    ]
-    return jsonify(lista_datos)
+# # Ruta para obtener una lista de datos
+# @app.route('/api/lista', methods=['GET'])
+# def obtener_lista():
+#     lista_datos = [
+#         {"nombre": "Sebastián", "edad": 19, "ciudad": "Seseña"},
+#         {"nombre": "Javier", "edad": 19, "ciudad": "Seseña"},
+#         {"nombre": "Manu", "edad": 26, "ciudad": "Illescas"}
+#     ]
+#     return jsonify(lista_datos)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
     
 # Alojar API en un servidor
 
@@ -859,7 +868,7 @@ if __name__ == '__main__':
 # # Valor de Pi
 # print(math.pi)  
 # """ 2. El módulo random es útil para generar números aleatorios, simular
-#  lanzamientos de monedas, dados, y más."""
+#  lanzamientos de monedas, dados,etc."""
 # import random
 # # Número aleatorio entre 0 y 1
 # print(random.random())
