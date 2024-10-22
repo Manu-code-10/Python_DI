@@ -30,3 +30,39 @@ def obtener_lista():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+# EJECUTAR API
+# import requests
+
+# # URL de la API alojada en Render
+# url = ""
+
+# # Hacer una solicitud GET a la API
+# response = requests.get(url)
+
+# # Verificar que la solicitud fue exitosa (código 200)
+# if response.status_code == 200:
+#     # Imprimir los datos obtenidos de la API
+#     print("Datos obtenidos de la API:")
+#     print(response.json())  # Formato JSON que retorna la API
+# else:
+#     print(f"Error en la solicitud: {response.status_code}")

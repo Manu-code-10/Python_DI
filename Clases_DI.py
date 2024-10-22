@@ -717,28 +717,6 @@ En la Programación Orientada a Objetos (POO), las interfaces y clases
 # except Exception as e:
 #     print(f"Error al realizar la consulta: {e}")
 
-# Lista --> Dataframe
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # CONECTARNOS A MONGO DB--> Peticion: "mongodb+srv://manuel10benito:x6HWnCibWBsVpi9v@cluster0.sq23v.mongodb.net/?retryWrites=true&w=majority"
 # import pymongo  # Para conectarse a MongoDB
@@ -792,38 +770,92 @@ En la Programación Orientada a Objetos (POO), las interfaces y clases
 # PVGIS
 
 # Definir la URL de la API de PVGIS y los parámetros para la consulta
-import json
-import requests
-base_url = "https://re.jrc.ec.europa.eu/api/v5_2/PVcalc"
+# import json
+# import requests
+# base_url = "https://re.jrc.ec.europa.eu/api/v5_2/PVcalc"
 
-# Parámetros de la solicitud (Madrid, España)
-params = {
-    'lat': 40.4168,  # Latitud 
-    'lon': -3.7038,  # Longitud 
-    'peakpower': 1,  # Potencia pico del sistema (kW)
-    'pvtechchoice': 'crystSi',  # Tipo de tecnología PV (Silicio cristalino)
-    'loss': 14,  # Pérdidas del sistema (%)
-    'outputformat': 'json'  # Formato de salida
-}
+# # Parámetros de la solicitud (Madrid, España)
+# params = {
+#     'lat': 40.4168,  # Latitud 
+#     'lon': -3.7038,  # Longitud 
+#     'peakpower': 1,  # Potencia pico del sistema (kW)
+#     'pvtechchoice': 'crystSi',  # Tipo de tecnología PV (Silicio cristalino)
+#     'loss': 14,  # Pérdidas del sistema (%)
+#     'outputformat': 'json'  # Formato de salida
+# }
 
-# Realizar la solicitud GET
-response = requests.get(base_url, params=params)
+# # Realizar la solicitud GET
+# response = requests.get(base_url, params=params)
 
-# Verificar que la solicitud fue exitosa
-if response.status_code == 200:
-    # Cargar el contenido JSON en una variable de Python
-    data = json.loads(response.text)
+# # Verificar que la solicitud fue exitosa
+# if response.status_code == 200:
+#     # Cargar el contenido JSON en una variable de Python
+#     data = json.loads(response.text)
     
-    # Mostrar parte de la información
-    print("Datos obtenidos de PVGIS:")
-    print(f"Energía diaria estimada: {data['outputs']['totals']['fixed']['E_d']} kWh")
-    print(f"Energía anual estimada: {data['outputs']['totals']['fixed']['E_y']} kWh")
-else:
-    print(f"Error al realizar la solicitud: {response.status_code}")
+#     # Mostrar parte de la información
+#     print("Datos obtenidos de PVGIS:")
+#     print(f"Energía diaria estimada: {data['outputs']['totals']['fixed']['E_d']} kWh")
+#     print(f"Energía anual estimada: {data['outputs']['totals']['fixed']['E_y']} kWh")
+# else:
+#     print(f"Error al realizar la solicitud: {response.status_code}")
 
 
 # Creación de APIs
 # Crear la API
+
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+# Lista 1.
+@app.route('/api/lista1', methods=['GET'])
+def obtener_lista1():
+    datos = {
+        "nombre": "Sebastian",
+        "Edad": 19,
+        "Residencia": "Seseña"}
+    return jsonify(datos)
+
+# Lista 2.
+@app.route('/api/lista2', methods=['GET'])
+def obtener_lista2():
+    lista_datos = [
+        {"nombre": "Sebastian", "Edad": 19, "Residencia": "Seseña"},
+        {"nombre": "Javier", "Edad": 19, "Residencia": "Seseña"},
+        {"nombre": "Manu", "Edad": 26, "Residencia": "Ciudad Real"},
+        {"nombre": "Tymur", "Edad": 20, "Residencia": "Seseña"}]
+    return jsonify(lista_datos)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 from flask import Flask, jsonify
 
 app = Flask(__name__)
