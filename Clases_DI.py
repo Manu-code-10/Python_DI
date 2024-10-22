@@ -824,33 +824,33 @@ else:
 
 # Creación de APIs
 # Crear la API
-# from flask import Flask, jsonify
+from flask import Flask, jsonify
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
-# # Ruta principal con respuesta en formato JSON
-# @app.route('/api', methods=['GET'])
-# def obtener_datos():
-#     # Datos en formato JSON
-#     datos = {
-#         "nombre": "Javi",
-#         "edad": 25,
-#         "ciudad": "Madrid"
-#     }
-#     return jsonify(datos)
+# Ruta principal con respuesta en formato JSON
+@app.route('/api', methods=['GET'])
+def obtener_datos():
+    # Datos en formato JSON
+    datos = {
+        "nombre": "Javi",
+        "edad": 19,
+        "ciudad": "Seseña"
+    }
+    return jsonify(datos)
 
-# # Ruta para obtener una lista de datos
-# @app.route('/api/lista', methods=['GET'])
-# def obtener_lista():
-#     lista_datos = [
-#         {"nombre": "Sebastián", "edad": 19, "ciudad": "Seseña"},
-#         {"nombre": "Javier", "edad": 19, "ciudad": "Seseña"},
-#         {"nombre": "Manu", "edad": 26, "ciudad": "Illescas"}
-#     ]
-#     return jsonify(lista_datos)
+# Ruta para obtener una lista de datos
+@app.route('/api/lista', methods=['GET'])
+def obtener_lista():
+    lista_datos = [
+        {"nombre": "Sebastián", "edad": 19, "ciudad": "Seseña"},
+        {"nombre": "Javier", "edad": 19, "ciudad": "Seseña"},
+        {"nombre": "Manu", "edad": 26, "ciudad": "Illescas"}
+    ]
+    return jsonify(lista_datos)
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
     
 # Alojar API en un servidor
 
