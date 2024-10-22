@@ -829,60 +829,33 @@ En la Programación Orientada a Objetos (POO), las interfaces y clases
 # if __name__ == '__main__':
 #     app.run(debug=True)
 
+# from flask import Flask, jsonify
 
+# app = Flask(__name__)
 
+# # Ruta principal con respuesta en formato JSON
+# @app.route('/api', methods=['GET'])
+# def obtener_datos():
+#     # Datos en formato JSON
+#     datos = {
+#         "nombre": "Javi",
+#         "edad": 19,
+#         "ciudad": "Seseña"
+#     }
+#     return jsonify(datos)
 
+# # Ruta para obtener una lista de datos
+# @app.route('/api/lista', methods=['GET'])
+# def obtener_lista():
+#     lista_datos = [
+#         {"nombre": "Sebastián", "edad": 19, "ciudad": "Seseña"},
+#         {"nombre": "Javier", "edad": 19, "ciudad": "Seseña"},
+#         {"nombre": "Manu", "edad": 26, "ciudad": "Illescas"}
+#     ]
+#     return jsonify(lista_datos)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-from flask import Flask, jsonify
-
-app = Flask(__name__)
-
-# Ruta principal con respuesta en formato JSON
-@app.route('/api', methods=['GET'])
-def obtener_datos():
-    # Datos en formato JSON
-    datos = {
-        "nombre": "Javi",
-        "edad": 19,
-        "ciudad": "Seseña"
-    }
-    return jsonify(datos)
-
-# Ruta para obtener una lista de datos
-@app.route('/api/lista', methods=['GET'])
-def obtener_lista():
-    lista_datos = [
-        {"nombre": "Sebastián", "edad": 19, "ciudad": "Seseña"},
-        {"nombre": "Javier", "edad": 19, "ciudad": "Seseña"},
-        {"nombre": "Manu", "edad": 26, "ciudad": "Illescas"}
-    ]
-    return jsonify(lista_datos)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
     
 # Alojar API en un servidor
 
@@ -890,8 +863,8 @@ if __name__ == '__main__':
 
 
 # %% 10. Módulos más comunes
-# """ 1. Math: El módulo math proporciona acceso a funciones matemáticas comunes,
-#  como trigonometría, logaritmos, factoriales, etc."""
+""" 1. Math: El módulo math proporciona acceso a funciones matemáticas comunes,
+  como trigonometría, logaritmos, factoriales, etc."""
 # import math
 # # Raíz cuadrada
 # print(math.sqrt(16))  
@@ -899,8 +872,8 @@ if __name__ == '__main__':
 # print(math.log(2.7183)) 
 # # Valor de Pi
 # print(math.pi)  
-# """ 2. El módulo random es útil para generar números aleatorios, simular
-#  lanzamientos de monedas, dados,etc."""
+""" 2. El módulo random es útil para generar números aleatorios, simular
+  lanzamientos de monedas, dados,etc."""
 # import random
 # # Número aleatorio entre 0 y 1
 # print(random.random())
@@ -909,8 +882,8 @@ if __name__ == '__main__':
 # # Selección aleatoria de una lista
 # frutas = ['manzana', 'banana', 'naranja']
 # print(random.choice(frutas))
-# """ 3. datetime: El módulo datetime permite trabajar con fechas, horas,
-#  intervalos de tiempo y realizar cálculos relacionados con el tiempo."""
+""" 3. datetime: El módulo datetime permite trabajar con fechas, horas,
+  intervalos de tiempo y realizar cálculos relacionados con el tiempo."""
 # from datetime import datetime
 # # Fecha y hora actuales
 # ahora = datetime.now()
@@ -926,9 +899,9 @@ if __name__ == '__main__':
 # fin = datetime.now()
 # tiempo_ejecucion = fin - ahora
 # print(f"El tiempo de ejecución ha sido de {tiempo_ejecucion} segundos")
-# """ 4. Matplot. matplotlib es la biblioteca más usada para hacer gráficos en
-#  Python. Es ideal para generar gráficos de líneas, barras, histogramas, entre
-#  otros."""
+""" 4. Matplot. matplotlib es la biblioteca más usada para hacer gráficos en
+  Python. Es ideal para generar gráficos de líneas, barras, histogramas, entre
+  otros."""
 # import matplotlib.pyplot as plt
 # # Datos
 # x = [1, 2, 3, 4, 5]
@@ -940,9 +913,9 @@ if __name__ == '__main__':
 # plt.title('Gráfico de línea simple')
 # plt.legend()
 # plt.show()
-# """ 5. seaborn: Visualización avanzada
-# seaborn se utiliza para crear visualizaciones más avanzadas,
-#  como gráficos de distribución, correlaciones, etc."""
+""" 5. seaborn: Visualización avanzada
+seaborn se utiliza para crear visualizaciones más avanzadas,
+  como gráficos de distribución, correlaciones, etc."""
 # import seaborn as sns
 # import matplotlib.pyplot as plt
 # import pandas as pd
