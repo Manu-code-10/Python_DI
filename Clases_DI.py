@@ -803,31 +803,31 @@ En la Programación Orientada a Objetos (POO), las interfaces y clases
 # Creación de APIs
 # Crear la API
 
-from flask import Flask, jsonify
+# from flask import Flask, jsonify
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-# Lista 1.
-@app.route('/api/lista1', methods=['GET'])
-def obtener_lista1():
-    datos = {
-        "nombre": "Sebastian",
-        "Edad": 19,
-        "Residencia": "Seseña"}
-    return jsonify(datos)
+# # Lista 1.
+# @app.route('/api/lista1', methods=['GET'])
+# def obtener_lista1():
+#     datos = {
+#         "nombre": "Sebastian",
+#         "Edad": 19,
+#         "Residencia": "Seseña"}
+#     return jsonify(datos)
 
-# Lista 2.
-@app.route('/api/lista2', methods=['GET'])
-def obtener_lista2():
-    lista_datos = [
-        {"nombre": "Sebastian", "Edad": 19, "Residencia": "Seseña"},
-        {"nombre": "Javier", "Edad": 19, "Residencia": "Seseña"},
-        {"nombre": "Manu", "Edad": 26, "Residencia": "Ciudad Real"},
-        {"nombre": "Tymur", "Edad": 20, "Residencia": "Seseña"}]
-    return jsonify(lista_datos)
+# # Lista 2.
+# @app.route('/api/lista2', methods=['GET'])
+# def obtener_lista2():
+#     lista_datos = [
+#         {"nombre": "Sebastian", "Edad": 19, "Residencia": "Seseña"},
+#         {"nombre": "Javier", "Edad": 19, "Residencia": "Seseña"},
+#         {"nombre": "Manu", "Edad": 26, "Residencia": "Ciudad Real"},
+#         {"nombre": "Tymur", "Edad": 20, "Residencia": "Seseña"}]
+#     return jsonify(lista_datos)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
 
 
