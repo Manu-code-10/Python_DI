@@ -58,7 +58,7 @@ def git_push(repo_path):
         print(f"Error durante la ejecución de Git: {e}")
 
 # Ruta a tu repositorio local (¡DEL ORDENADOR!)
-repo_path = "C:/Programacion/Python/"  
+repo_path = "C:/Programacion/Python"  
 
 # Llamada a la función para subir los archivos
 git_push(repo_path)
